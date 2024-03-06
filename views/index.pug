@@ -1,0 +1,81 @@
+extends layout
+
+block content
+      h1 Uploading documents 
+      br
+      form(action="/uploadDocument", method="post", enctype="multipart/form-data")
+        label(for="document") Document Upload:
+        label(for="email") Token:
+        input(type="text", name="token", required)
+        input(type="file", name="document[]", accept=".pdf, .doc, .jpg, .png", multiple, required)
+        input(type="submit", value="Submit")
+      h1 updating profile 
+      br
+      form(action="/updateProfile", method="post")
+        label(for="fullName") Full Name:
+        input(type="text", name="fullName", required)
+
+        label(for="email") Email:
+        input(type="email", name="email", required)
+
+        label(for="businessName") Business Name:
+        input(type="text", name="businessName", required)
+
+        label(for="businessType") Business Type:
+        select(name="businessType", required)
+          option(value="retail") Retail
+          option(value="service") Service
+          option(value="manufacturing") Manufacturing
+          // Add more options as needed
+
+        label(for="description") Description:
+        textarea(name="description", rows="4", required)
+        input(type="submit", value="Submit")
+
+      h1 Create listing 
+      form(action="/createListing", method="post" enctype="multipart/form-data")
+        input(type="hidden",name='userId',value='15')
+        label(for="email") Token:
+        input(type="text", name="token",  )
+        label(for="title") title:
+        input(type="text", name="title",  )
+
+        label(for="description") description:
+        textarea(name="description", rows="4", placeholder='type something here'  )
+
+        label(for="sellingReason") why are you selling:
+        input(type="text", name="sellingReason",  )
+
+        label(for="businessType") Asking price:
+        input(type="text", name="askingPrice",  )
+
+        label(for="industryType") Type Of industries:
+        select(name="industryType",  )
+          option(value="retail") Retail
+          option(value="service") Service
+          option(value="manufacturing") Manufacturing
+
+        label(for="version") version:
+        input(type="text", name="version",  )
+
+        label(for="businessModel") business model:
+        input(type="text", name="businessModel",  )
+
+        label(for="netProfit") Net Profit:
+        input(type="text", name="netProfit",  )
+
+        label(for="revenue") Revenue:
+        input(type="text", name="revenue",  )
+        
+
+
+        label(for="link") Link:
+        input(type="text", name="link",  )
+
+        label(for="downloads") Downloads:
+        input(type="text", name="downloads",  )
+        
+        label(for="document") Document Upload:
+        input(type="file", name="extDoc", multiple,  )
+
+        input(type="submit", value="Submit")
